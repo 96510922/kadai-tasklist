@@ -1,9 +1,23 @@
+ <div class="row">
+
 <h1>タスク一覧</h1>
-
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.status %> &gt;  <%= task.content %></li>
-  <% end %>
-</ul>
-
 <%= link_to '新規タスクの投稿', new_task_path %>
+
+<% if logged_in? %>
+    <div class="col-sm-8">
+      <%= render 'tasks/posts', tasks: @tasks %>
+    </div>
+
+<% else %>
+
+<%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+<%= link_to 'Log in!', login_path, class: 'btn btn-lg btn-primary' %>
+<% end %>
+
+</div>
+
+
+
+
+
+

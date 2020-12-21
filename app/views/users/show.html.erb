@@ -1,0 +1,20 @@
+<h1>Users#show</h1>
+
+
+<div class="container">
+ <div class="row">
+<div class="col-12"><%= @user.name %></div>
+<div class="col-12"><%= link_to 'Log out' , logout_path, method: :delete %></div>
+</div>
+</div>
+
+
+<%= @user.name %>
+  <div class="col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Microposts  <span class="badge badge-secondary"><%= @count_microposts %></span></a>
+     
+    </ul>
+    <%= render 'tasks/posts', tasks: @tasks %>
+  </div>
+
